@@ -1,6 +1,9 @@
 package com.bilal.kaya.controller;
 
+import com.bilal.kaya.model.User;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -52,7 +55,7 @@ public class HelloController {
         return "Your message is:" +message;
     }*/
 
-    @GetMapping({"/message1","/message1/{message}"})
+    /*@GetMapping({"/message1","/message1/{message}"})
     public String getMyMessageWithVariable(@PathVariable(name="message",required = false) String message){
         return "Your message is :" + message;
     }
@@ -61,7 +64,27 @@ public class HelloController {
     @GetMapping("/message2")
     public String getMyMessageWithParam(@RequestParam(name = "message",required = false,defaultValue ="my default messagee") String message){
         return "Your message is: " +message;
+    }*/
+
+    //@RequestBody Annotation
+
+    @PostMapping("/users")
+    public User saveUser(@RequestBody User user){
+        System.out.println("User saved");
+        user.setPassword("");
+        return user;
     }
+    //peki liste halinde de alabilirmiyiz? So can we get it as a list?
+    //sen users yani Liste(List<User>) dönüceksin ama başta belirtilen dönüş tipin User.Bunu değiştiriyoruz.
+    @PostMapping("/users-all")
+    public List<User> saveAllUser(@RequestBody List<User> users){
+        System.out.println("All users saved");
+        users.forEach(user -> user.setPassword(""));
+        return users;
+    }
+
+
+
 
 
 
