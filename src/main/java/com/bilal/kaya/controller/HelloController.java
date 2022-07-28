@@ -30,17 +30,27 @@ public class HelloController {
     }*/
 
 
-
+    // @PathVariable has two uses.Both are shown below.
     // @PathVariable'ın iki kullanımı var.ikiside görüldüğü üzere aşağıdadır.
-    @GetMapping("/message/{message}")
+    /*@GetMapping("/message/{message}")
     public String getMessage(@PathVariable String message){
         return "Your message is : "+message;
-    }
+    }*/
     /*@GetMapping("/message/{m}")
     public String getMessage2(@PathVariable("m") String message ){
         return "Your message is : "+message;
     }*/
 
+    //@RequestParam has two uses.Both are shown below.
+    /*@GetMapping("/message")
+    public String getMyMessage(@RequestParam  String message){
+        return "Your message is:" +message;
+    }*/
+
+    @GetMapping("/message")
+    public String getMyMessage(@RequestParam("m")  String message){
+        return "Your message is:" +message;
+    }
 
 
 
