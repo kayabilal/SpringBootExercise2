@@ -59,7 +59,7 @@ public class HelloController {
 
 
     @GetMapping("/message2")
-    public String getMyMessageWithParam(@RequestParam(name = "message",required = false,defaultValue ="my default message") String message){
+    public String getMyMessageWithParam(@RequestParam(name = "message",required = false,defaultValue ="my default messagee") String message){
         return "Your message is: " +message;
     }
 
