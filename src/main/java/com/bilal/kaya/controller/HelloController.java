@@ -68,7 +68,7 @@ public class HelloController {
 
     //@RequestBody Annotation
 
-    @PostMapping("/users")
+    /*@PostMapping("/users")
     public User saveUser(@RequestBody User user){
         System.out.println("User saved");
         user.setPassword("");
@@ -81,7 +81,12 @@ public class HelloController {
         System.out.println("All users saved");
         users.forEach(user -> user.setPassword(""));
         return users;
+    }*/
+    @GetMapping("/header")
+    public String getHeader(@RequestHeader("My-Header") String myHeader){
+        return "Your header is:" +myHeader;
     }
+
 
 
 
